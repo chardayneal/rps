@@ -1,71 +1,69 @@
-
-// storing player's selection in variable
-const playerSelection = (prompt('Which would you like to choose: rock, paper, scissors?')).toLowerCase();
-console.log("You Selected: " + playerSelection);
-
-// computer options: rock, paper, or scissors
-const selection = ['rock', 'paper', 'scissors'];
-
-// select computer's choice
-function getComputerChoice() {
-    let i = Math.floor(Math.random() * selection.length);
-    console.log("Computer's Choice: " + selection[i]);
-    return selection[i];
-}
-
-// store computer's choice in variable
-const computerSelection = getComputerChoice();
-
-
-
-
-
-
-// test for valid selection until valid selection made
-/* if (playerSelection != 'rock' || 'paper' || 'scissors') {
-    console.log("Invalid Selection");
-    playerSelection = (prompt('Which would you like to choose: rock, paper, scissors?')).toLowerCase();
-} */
-
-
-
+//score of player&cpu A N D round tracker
+let round = 1;
+let player_points = 0;
+let cpu_points = 0;
 
 // game of rock, paper, scissors
 
-function play(playerSelection, computerSelection) {
-    switch (playerSelection) {
+function play(player, cpu) {
+    console.log(`Round ${round} `)
+    if (player != 'rock' || 'paper' || 'scissors') {
+        alert("Invalid Selection");
+    } else {
+        console.log("You Selected: " + player);
+    }
+    console.log("Computer's Choice: " + cpu)
+    switch (player) {
         case 'rock':
-            if (computerSelection == 'paper') {
-                console.log('You Lose! Paper beats Rock');
+            if (cpu == 'paper') {
+                return cpu_points++;
             } 
-            else if (computerSelection == 'scissors') {
-                console.log('You Win! Rock beats Scissors');
+            else if (cpu == 'scissors') {
+                return player_points++;
             } else {
-                console.log("It's a tie!");
+                return "Tie!";
             }
-            break;
 
         case 'paper':
-            if (computerSelection == 'rock') {
-                console.log('You Win! Paper beats Rock');
-            } else if (computerSelection == 'scissors') {
-                console.log('You Lose! Scissors beats Paper');
+            if (cpu == 'rock') {
+                return player_points++;
+            } else if (cpu == 'scissors') {
+                return cpu_points++;
             } else {
-                console.log("It's a tie!");
+                return "Tie!";
             }
-            break;
-
+            
         case 'scissors': 
-            if (computerSelection == 'rock') {
-                console.log('You Lose! Rock beats Scissors ');
-            } else if (computerSelection == 'paper') {
-                console.log('You Win! Scissors beats Paper');
+            if (cpu == 'rock') {
+                return cpu_points++;
+            } else if (cpu == 'paper') {
+                return player_points++;
             } else {
-                console.log("It's a tie!");
+                return "Tie!";
             }
-            break;
-
     }
 }
 
-console.log(play(playerSelection, computerSelection));
+// select computer's choice
+function getComputerChoice() {
+    let selection = ['rock', 'paper', 'scissors'];
+    let i = Math.floor(Math.random() * selection.length);
+    return selection[i];
+}
+
+// plays five rounds and prints winner of all rounds
+function game() {
+    for (let i = 0; i < 5; i++) {
+        play((prompt(`Round ${round}: Which would you like to choose? (rock, paper, scissors) `)).toLowerCase(), getComputerChoice());
+        round++;
+    }
+    if (player_points > cpu_points) {
+        console.log("You Win!");
+    } else if (player_points < cpu_points){
+        console.log("Computer Wins!")
+    } else {
+        console.log("It's a Tie!")
+    }
+}
+
+game();
