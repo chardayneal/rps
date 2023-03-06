@@ -20,9 +20,17 @@
 
     <!-- // D I S P L A Y E D   R E S U L T S // -->
     <div id="display">
-        <div id="selection-display">
-            <div class="box" id="lBox"></div>
-            <div class="box" id="rBox"></div>
+        <div id="card-pile">
+
+            <div class="cards">
+                <div class="card-top" id="player-card">PLAYER</div>
+                <div class='card-bottom' id="player"></div>
+            </div>
+
+            <div class="cards">
+                <div class="card-top" id="cpu-card">COMPUTER</div>
+                <div class="card-bottom" id="computer"></div>
+            </div>
         </div>
         <div id="game-descript"></div>
     </div>
@@ -32,15 +40,15 @@
         <h2>Choose one:</h2>
         <section id="choices-container">
             <button id="rock">
-                <img id="rock_img" src="./images/rock.png">
+                <img class="img-hover" id="rock_img" src="./images/rock.png">
             </button>
 
             <button id="paper">
-                <img id="paper_img" src="./images/paper.png">
+                <img class="img-hover" id="paper_img" src="./images/paper.png">
             </button>
 
             <button id="scissors">
-                <img id="scissors_img" src="./images/scissors.png">
+                <img class="img-hover" id="scissors_img" src="./images/scissors.png">
             </button>
         </section>
     </section>

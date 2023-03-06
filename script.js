@@ -3,10 +3,10 @@ const header = document.querySelector('h1');
 const div = document.querySelector('#game-descript');
 let winner_text = '';
 const winner_div = document.createElement('div');
-const lBox = document.querySelector('#lBox');
-const rBox = document.querySelector('#rBox');
-const lBox_text = document.createElement('div');
-const rBox_text = document.createElement('div');
+
+const playerCard = document.querySelector('#player-card');
+const cpuCard = document.querySelector('#cpu-card');
+
 
 let selection = ['rock', 'paper', 'scissors'];
 let cpuPoints = document.querySelector('#cpu-pnts');
@@ -16,17 +16,34 @@ let myPoints = document.querySelector('#player-pnts');
 let player_points = 0;
 let cpu_points = 0;
 
-
+const images = document.querySelectorAll('img');
+const player_img = document.getElementById('player');
+const cpu_img = document.getElementById('computer');
+const img = document.createElement('img');
+img.setAttribute('class', 'selected');
+const img2 = document.createElement('img');
+img2.setAttribute('class', 'selected');
+function getImage(choice1, choice2) {
+    images.forEach((image) => {
+        if (image.id == `${choice1}_img` && image.id == `${choice2}_img`) {
+            img.src = `./images/${choice1}-select.png`;
+            img2.src = `./images/${choice2}-select.png`;
+        }else if (image.id == `${choice1}_img`) {
+            img.src = `./images/${choice1}-select.png`;
+        } else if (image.id == `${choice2}_img`) {
+            img2.src = `./images/${choice2}-select.png`;
+        }
+    });
+}
 // game of rock, paper, scissors
 
 function play(player, cpu) {
     if(body.contains(header)) {
         body.removeChild(header);
     }
-    
-    lBox_text.textContent = "You Selected: " + player;
-    
-    rBox_text.textContent = "Computer's Choice: " + cpu;
+
+    getImage(player, cpu);
+
     switch (player) {
         case 'rock':
             if (cpu == 'paper') {
@@ -75,8 +92,7 @@ function play(player, cpu) {
 }
 
 // select computer's choice
-function getComputerChoice() {
-    
+function getComputerChoice() { 
     let i = Math.floor(Math.random() * selection.length);
     return selection[i];
 }
@@ -90,7 +106,7 @@ buttons.forEach((button) => {
         play(button.id, getComputerChoice());
         winner_div.textContent = winner_text;
         div.appendChild(winner_div);
-        lBox.appendChild(lBox_text);
-        rBox.appendChild(rBox_text);
+        player_img.appendChild(img);
+        cpu_img.appendChild(img2);
     });
 });

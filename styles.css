@@ -34,6 +34,46 @@ body {
     flex-direction: column;
 }
 
+#card-pile {
+    display: flex;
+    justify-content: center;
+    flex: 1 0 auto;
+    gap: 70px;
+}
+  
+  .cards {
+    width: 250px;
+    height: 325px;
+    display: flex;
+    flex-direction: column;
+    margin: 25px auto;
+  
+}
+  
+  .card-top {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    height: 50px;
+    background-color: #e05b27;
+    border-radius: 10px 10px 0 0;
+}
+  
+  .card-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    border: 5px solid #e05b27;
+}
+
+.selected {
+    width: 175px;
+    height: auto;
+}
+
 #selection-display {
     display: flex;
     height: 300px;
@@ -94,9 +134,9 @@ img {
     width: 100px;
     height: auto;
 }
-img:hover {
+.img-hover:hover {
     width: 150px;
     height: auto;
-    border: #e0e027 solid 15px;
+    border: #e05b27 solid 15px;
     border-radius: 10%;
 }
