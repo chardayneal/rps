@@ -5,17 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-
+    <!-- // S C O R E   D I S P L A Y // -->
     <div id="results">
-        <div id="cpu-pnts">Computer: 0</div>
         <div id="player-pnts">My Score: 0</div>
+        <div id="cpu-pnts">Computer: 0</div>
     </div>
+
+    <!-- //  W E L C O M E // -->
+    <h1 id="welcome">Welcome to Rock, Paper, Scissors!</h1>
+
+    <!-- // D I S P L A Y E D   R E S U L T S // -->
+    <div id="display">
+        <div id="selection-display">
+            <div class="box" id="lBox"></div>
+            <div class="box" id="rBox"></div>
+        </div>
+        <div id="game-descript"></div>
+    </div>
+
+    <!-- // S E L E C T I O N  A R E A // -->
+    <section id="selection">
+        <h2>Choose one:</h2>
+        <section id="choices-container">
+            <button id="rock">
+                <img id="rock_img" src="./images/rock.png">
+            </button>
+
+            <button id="paper">
+                <img id="paper_img" src="./images/paper.png">
+            </button>
+
+            <button id="scissors">
+                <img id="scissors_img" src="./images/scissors.png">
+            </button>
+        </section>
+    </section>
+
     
 </body>
 </html>
