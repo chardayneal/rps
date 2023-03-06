@@ -1,5 +1,6 @@
 const body = document.querySelector('body');
 const header = document.querySelector('h1');
+const para = document.querySelector('p');
 const div = document.querySelector('#game-descript');
 let winner_text = '';
 const winner_div = document.createElement('div');
@@ -35,11 +36,19 @@ function getImage(choice1, choice2) {
         }
     });
 }
+const answer = document.createElement('img');
+answer.getAttribute('id', 'answer');
+function getAnswer(source) {
+    answer.src = `./images/${source}.png`;
+}
 // game of rock, paper, scissors
 
 function play(player, cpu) {
     if(body.contains(header)) {
         body.removeChild(header);
+        body.removeChild(para);
+    } else if (body.contains(para)) {
+        body.removeChild(para);
     }
 
     getImage(player, cpu);
@@ -49,11 +58,13 @@ function play(player, cpu) {
             if (cpu == 'paper') {
                 cpu_points++;
                 winner_text = `${cpu}  beats  ${player}`;
+                getAnswer('wrong');
                 return cpuPoints.textContent = `Computer: ${cpu_points}`;
             } 
             else if (cpu == 'scissors') {
                 player_points++;
                 winner_text = `${player}  beats  ${cpu}`;
+                getAnswer('check');
                 return myPoints.textContent = `My Score: ${player_points}`;
             } else {
                 winner_text = "It's a tie!";
@@ -64,10 +75,12 @@ function play(player, cpu) {
             if (cpu == 'rock') {
                 player_points++;
                 winner_text = `${player}  beats  ${cpu}`;
+                getAnswer('check');
                 return myPoints.textContent = `My Score: ${player_points}`;
             } else if (cpu == 'scissors') {
                 cpu_points++;
                 winner_text = `${cpu}  beats  ${player}`;
+                getAnswer('wrong');
                 return cpuPoints.textContent = `Computer: ${cpu_points}`;
             } else {
                 winner_text = "It's a tie!";
@@ -78,13 +91,15 @@ function play(player, cpu) {
             if (cpu == 'rock') {
                 cpu_points++;
                 winner_text = `${cpu}  beats  ${player}`;
+                getAnswer('wrong');
                 return cpuPoints.textContent = `Computer: ${cpu_points}`;
             } else if (cpu == 'paper') {
                 player_points++;
                 winner_text = `${player}  beats  ${cpu}`;
+                getAnswer('check');
                 return myPoints.textContent = `My Score: ${player_points}`;
             } else {
-                winner_text = "It's a tie";
+                winner_text = "It's a tie!";
                 return "Tie!";
             }
     }
@@ -106,7 +121,12 @@ buttons.forEach((button) => {
         play(button.id, getComputerChoice());
         winner_div.textContent = winner_text;
         div.appendChild(winner_div);
+        if (winner_text == "It's a tie!") {
+            div.removeChild(answer);
+        } else {
+            div.appendChild(answer);
+        }
         player_img.appendChild(img);
         cpu_img.appendChild(img2);
     });
-});
+}); 

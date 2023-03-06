@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers');
+@import url('https://fonts.googleapis.com/css?family=Rampart+One');
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +9,7 @@
 
 body {
     background: #eddfcc;
+    font-family: "Luckiest Guy";
 }
 
 #results {
@@ -18,12 +23,20 @@ body {
 
 #results > div {
     flex-shrink: 0;
+    font-family: "Bangers";
     font-size: 24px;
     font-weight: bold;
 }
 
 #welcome {
     font-size: 50px;
+    text-align: center;
+    width: auto;
+}
+
+#welcome-text {
+    color: #d11212;
+    font-size: 15px;
     text-align: center;
     width: auto;
 }
@@ -51,9 +64,12 @@ body {
 }
   
   .card-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Rampart One";
     font-size: 30px;
     font-weight: bold;
-    text-align: center;
     height: 50px;
     background-color: #e05b27;
     border-radius: 10px 10px 0 0;
@@ -74,12 +90,13 @@ body {
     height: auto;
 }
 
-#selection-display {
-    display: flex;
-    height: 300px;
-    background-color: blue;
-    justify-content: center;
-    align-items: center;
+
+#selection {
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 25px 0;
+    margin: 5px 75px;
+    background-color: white;
 }
 
 .box {
@@ -90,14 +107,17 @@ body {
 }
 
 #game-descript {
-    height: 50px;
+    height: 325px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 15px;
 }
 
 #game-descript > div {
-    font-size: large;
+    font-family: "Bangers";
+    font-size: 24px;
     text-align: center;
 }
 
@@ -107,6 +127,7 @@ body {
 }
 
 h2 {
+    font-family: "Bangers";
     font-size: 35px;
     text-align: center;
 }
@@ -135,8 +156,13 @@ img {
     height: auto;
 }
 .img-hover:hover {
-    width: 150px;
+    width: 115px;
     height: auto;
     border: #e05b27 solid 15px;
     border-radius: 10%;
+}
+
+#answer {
+    width: 100px;
+    height: auto;
 }
