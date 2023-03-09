@@ -34,7 +34,7 @@ body {
     width: auto;
 }
 
-#welcome-text {
+#instructions {
     color: #d11212;
     font-size: 15px;
     text-align: center;
@@ -54,7 +54,7 @@ body {
     gap: 70px;
 }
   
-  .cards {
+.card {
     width: 250px;
     height: 325px;
     display: flex;
@@ -62,8 +62,9 @@ body {
     margin: 25px auto;
   
 }
+
   
-  .card-top {
+.card-top {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,22 +91,6 @@ body {
     height: auto;
 }
 
-
-#selection {
-    border: 2px solid black;
-    border-radius: 4px;
-    padding: 25px 0;
-    margin: 5px 75px;
-    background-color: white;
-}
-
-.box {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    text-align: center;
-}
-
 #game-descript {
     height: 325px;
     display: flex;
@@ -121,10 +106,25 @@ body {
     text-align: center;
 }
 
+
 #selection {
     display: flex;
     flex-direction: column;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 25px 0;
+    margin: 5px 75px;
+    background-color: white;
 }
+
+.box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: center;
+}
+
+
 
 h2 {
     font-family: "Bangers";
@@ -132,17 +132,12 @@ h2 {
     text-align: center;
 }
 
-#choices-container {
+#button-container {
     display: flex;
     justify-content: space-evenly;
     flex: 1 0 auto;
 }
 
-
-
-#choices-container {
-    display: flex;
-}
 
 button {
     border: none;
